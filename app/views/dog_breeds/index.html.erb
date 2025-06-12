@@ -1,0 +1,8 @@
+
+
+<%= link_to "New Dog breed", new_dog_breed_path%>
+<div id="dogbreeds">                                                                                               <% @dogbreeds.each do |dogbreed| %>
+    <div>                                                                                                              <a href="/dog_breeds/<%= dogbreed.id %>">
+        <%= dogbreed.name %>
+      </a>                                                                                                           </div>                                                                                                         <% end %>
+</div>             

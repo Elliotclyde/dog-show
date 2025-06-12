@@ -1,0 +1,29 @@
+<h1>Dogs#new</h1>
+<h1>New dog</h1>
+
+<%= form_with model: @dog do |form| %>
+
+<% if @dog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% @dog.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.label :description%>
+    <%= form.text_field :description %>
+    <%= form.label :dog_breed_id%>
+    <%= form.collection_select :dog_breed_id, @dog_breeds, :id, :name %> 
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
